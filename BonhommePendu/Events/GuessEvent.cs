@@ -10,6 +10,7 @@ namespace BonhommePendu.Events
         // TODO: Compléter
         public GuessEvent(GameData gameData, char letter) {
             // TODO: Commencez par ICI
+            Events.Add(new GuessedLetterEvent(gameData, letter));            
         }
     }
 }
