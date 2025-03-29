@@ -1,4 +1,6 @@
 using BonhommePendu.Models;
+using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace BonhommePendu.Events
 {
@@ -6,10 +8,11 @@ namespace BonhommePendu.Events
     public class GuessedLetterEvent : GameEvent
     {
         public override string EventType { get { return "GuessedLetter"; } }
-
+        public char letter { get; set; }
         // TODO: Compléter
         public GuessedLetterEvent(GameData gameData, char letter)
         {
+            this.letter = letter;
             gameData.GuessedLetters.Add(letter);
             if (gameData.Word.Contains(letter))
             {
@@ -17,15 +20,15 @@ namespace BonhommePendu.Events
                 {
                     if (gameData.HasSameLetterAtIndex(letter, i))
                     {
-                        Events.Add(new RevealLetterEvent(gameData, letter, i));
-                    }
+                        Events.Add(new RevealLetterEvent(gameData, letter, i)); 
+
+                    }                   
                 }
             }
             else
             {
                 Events.Add(new WrongGuessEvent(gameData));
             }
-            
 
         }
     }
