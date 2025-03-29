@@ -11,10 +11,9 @@ namespace BonhommePendu.Events
 
         public RevealLetterEvent(GameData gameData, char letter, int index)
         {
-            this.letter = letter;
             this.index = index;
             // Conseil: Vous pouvez utiliser gameData.RevealLetter mettre à jour gameData
-             gameData.RevealLetter(index); 
+            this.letter = gameData.RevealLetter(index);
             // Conseil: Vous pouvez utiliser gameData.HasGuessedTheWord pour savoir si c'est une victoire
             if (gameData.HasGuessedTheWord) new WinEvent(gameData);
         }

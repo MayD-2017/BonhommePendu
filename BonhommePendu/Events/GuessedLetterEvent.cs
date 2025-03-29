@@ -16,7 +16,7 @@ namespace BonhommePendu.Events
             gameData.GuessedLetters.Add(letter);
             if (gameData.Word.Contains(letter))
             {
-                for (int i = 0; i <= gameData.Word.Length; i++)
+                for (int i = 0; i < gameData.Word.Length; i++)
                 {
                     if (gameData.HasSameLetterAtIndex(letter, i))
                     {
