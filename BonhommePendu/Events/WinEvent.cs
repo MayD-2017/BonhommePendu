@@ -6,10 +6,11 @@ namespace BonhommePendu.Events
     public class WinEvent : GameEvent
     {
         public override string EventType { get { return "Win"; } }
-
+        public bool won { get; set; }
         // TODO: Compléter
         public WinEvent(GameData gameData) {
             gameData.Won = true;
+            this.won = true;
         }
     }
 }

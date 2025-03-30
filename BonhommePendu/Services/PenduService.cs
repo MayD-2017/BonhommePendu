@@ -1,6 +1,7 @@
 ﻿using BonhommePendu.Events;
 using BonhommePendu.Models;
 using System.Net;
+using System.Text;
 
 namespace BonhommePendu.Services
 {
@@ -30,7 +31,7 @@ namespace BonhommePendu.Services
 
         public GameEvent? GuessLetter(char letter)
         {
-            letter = char.ToLower(letter);
+            letter = char.Parse(letter.ToString().Normalize(NormalizationForm.FormD).ToLower());
             // On ne fait rien si on a déjà essayé cette lettre
             if (_gameData.GuessedLetters.Contains(letter))
             {

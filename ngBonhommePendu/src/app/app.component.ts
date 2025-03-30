@@ -87,11 +87,12 @@ export class AppComponent {
           break;
         }
         case "Lose": {
-          this.gameData.lost = true;
+          this.gameData.lost = event.lost;
+          this.wronglyGuessedWord = event.word;
           break;
         }
         case "Win": {
-          this.gameData.won = true;
+          this.gameData.won = event.won;
           break;
         }
       }

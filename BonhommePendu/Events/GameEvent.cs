@@ -16,6 +16,7 @@ namespace BonhommePendu.Events
 
         public GameEvent()
         {
+            Events = new List<GameEvent>();
         }
     }
 }
