@@ -14,7 +14,8 @@ namespace BonhommePendu.Events
         {
             this.letter = letter;
             gameData.GuessedLetters.Add(letter);
-            if (gameData.Word.ToLower().Contains(letter))
+            var wordlower = gameData.Word.ToLower();
+            if (wordlower.Contains(letter))
             {
                 for (int i = 0; i < gameData.Word.Length; i++)
                 {
