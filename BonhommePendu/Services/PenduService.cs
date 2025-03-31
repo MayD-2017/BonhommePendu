@@ -45,7 +45,7 @@ namespace BonhommePendu.Services
         {
             HttpClient client = new HttpClient();
             int wordLength = 10;
-            var result = await client.GetAsync("https://random-word-api.herokuapp.com/word?lang=" + LANGUAGE + "&length=" + wordLength);
+            var result = await client.GetAsync("https://random-word.ryanrk.com/api/" + LANGUAGE + "/word/random/?length=" + wordLength);
             var randomWord = await result.Content.ReadAsStringAsync();
             // On se débarasse des charactères \" au début et à la fin 
             return randomWord.Substring(2, wordLength);
